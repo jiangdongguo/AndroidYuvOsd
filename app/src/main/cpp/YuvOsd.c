@@ -282,6 +282,13 @@ void swapNv21ColorFormat(char* c_srcArr,char* c_destArr,long wh,long frameSize,i
 	}
 }
 
+JNIEXPORT void JNICALL
+Java_com_jiangdg_natives_YuvUtils_convertColorFormat(JNIEnv *env, jclass type) {
+
+	// TODO
+
+}
+
 char* jstringTostring(JNIEnv* env, jstring jstr) {
 	char* rtn = NULL;
 	jclass clsstring = (*env)->FindClass(env, "java/lang/String");
@@ -297,4 +304,16 @@ char* jstringTostring(JNIEnv* env, jstring jstr) {
 	}
 	(*env)->ReleaseByteArrayElements(env, barr, ba, 0);
 	return rtn;
+}
+
+JNIEXPORT void JNICALL
+Java_com_jiangdg_natives_YuvUtils_nativeYV12ToNV21(JNIEnv *env, jclass type, jbyteArray src_,
+                                                   jint width, jint height, jbyteArray dst_) {
+    jbyte *src = (*env)->GetByteArrayElements(env, src_, NULL);
+    jbyte *dst = (*env)->GetByteArrayElements(env, dst_, NULL);
+
+    // TODO
+
+    (*env)->ReleaseByteArrayElements(env, src_, src, 0);
+    (*env)->ReleaseByteArrayElements(env, dst_, dst, 0);
 }

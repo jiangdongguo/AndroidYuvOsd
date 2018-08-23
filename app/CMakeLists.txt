@@ -7,7 +7,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/src/main/jniLibs/${ANDR
 # 将指定的源文件编译为YuvOsd.so动态库
 add_library(YuvOsd
             SHARED
-            src/main/cpp/YuvOsd.c
+            src/main/cpp/YuvOsd.cpp
             src/main/cpp/yuv/yuv.c)
 
 find_library(log-lib log )

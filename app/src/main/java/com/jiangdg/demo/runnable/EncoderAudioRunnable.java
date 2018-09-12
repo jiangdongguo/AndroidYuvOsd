@@ -1,10 +1,10 @@
-package com.jiangdg.yuvosd.runnable;
+package com.jiangdg.demo.runnable;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 
-import com.jiangdg.yuvosd.utils.MediaMuxerUtils;
+import com.jiangdg.demo.utils.MediaMuxerUtils;
 
 import android.annotation.SuppressLint;
 import android.media.AudioFormat;

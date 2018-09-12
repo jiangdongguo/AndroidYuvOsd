@@ -1,4 +1,4 @@
-package com.jiangdg.yuvosd.utils;
+package com.jiangdg.demo.utils;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;

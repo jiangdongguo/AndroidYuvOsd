@@ -1,4 +1,4 @@
-package com.jiangdg.yuvosd.runnable;
+package com.jiangdg.demo.runnable;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -20,9 +20,9 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
-import com.jiangdg.yuvosd.YuvUtils;
-import com.jiangdg.yuvosd.utils.CameraUtils;
-import com.jiangdg.yuvosd.utils.MediaMuxerUtils;
+import com.jiangdg.demo.utils.CameraUtils;
+import com.jiangdg.demo.utils.MediaMuxerUtils;
+import com.jiangdg.natives.YuvUtils;
 
 /** 对YUV视频流进行编码
  * Created by jiangdongguo on 2017/5/6.
@@ -158,7 +158,7 @@ public class EncoderVideoRunnable implements Runnable {
 		stopCodec();
     }
 
-    @SuppressLint("NewApi")
+    @SuppressLint({"NewApi", "WrongConstant"})
     private void encoderBytes(byte[] rawFrame){
         ByteBuffer[] inputBuffers = mVideoEncodec.getInputBuffers();
         ByteBuffer[] outputBuffers = mVideoEncodec.getOutputBuffers();
@@ -168,10 +168,10 @@ public class EncoderVideoRunnable implements Runnable {
 		byte[] rotateNv21 = new byte[mWidth*mHeight*3/2];
 		if(isFrontCamera()){
 			// 前置旋转270度(即竖屏采集，此时isPhoneHorizontal=false)
-			YuvUtils.Yuv420spRotateOfFront(rawFrame, rotateNv21, mWidth, mHeight, 270);
+//			YuvUtils.Yuv420spRotateOfFront(rawFrame, rotateNv21, mWidth, mHeight, 270);
 		}else{
 			// 后置旋转90度(即竖直采集，此时isPhoneHorizontal=false)
-            YuvUtils.YUV420spRotateOfBack(rawFrame, rotateNv21, mWidth, mHeight, 90);
+//            YuvUtils.YUV420spRotateOfBack(rawFrame, rotateNv21, mWidth, mHeight, 90);
 			// 后置旋转270度(即倒立采集，此时isPhoneHorizontal=false)
 //			YuvUtils.YUV420spRotateOfBack(rawFrame, rotateNv21, mWidth, mHeight, 270);
 			// 后置旋转180度(即反向横屏采集，此时isPhoneHorizontal=true)		
@@ -180,11 +180,11 @@ public class EncoderVideoRunnable implements Runnable {
 		}
 		// 将NV21转换为编码器支持的颜色格式I420，添加时间水印
 		if(isAddTimeOsd){
-            YuvUtils.AddYuvOsd(rotateNv21, mWidth, mHeight, mFrameData,
-					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),
-					mColorFormat,isPhoneHorizontal);
+//            YuvUtils.AddYuvOsd(rotateNv21, mWidth, mHeight, mFrameData,
+//					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),
+//					mColorFormat,isPhoneHorizontal);
 		}else{
-            YuvUtils.transferColorFormat(rotateNv21, mWidth, mHeight, mFrameData, mColorFormat);
+//            YuvUtils.transferColorFormat(rotateNv21, mWidth, mHeight, mFrameData, mColorFormat);
 		}
         //返回编码器的一个输入缓存区句柄，-1表示当前没有可用的输入缓存区
         int inputBufferIndex = mVideoEncodec.dequeueInputBuffer(TIMES_OUT);

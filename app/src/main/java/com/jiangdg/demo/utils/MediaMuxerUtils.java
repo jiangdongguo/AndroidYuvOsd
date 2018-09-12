@@ -1,12 +1,12 @@
-package com.jiangdg.yuvosd.utils;
+package com.jiangdg.demo.utils;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.Vector;
 
-import com.jiangdg.yuvosd.runnable.EncoderAudioRunnable;
-import com.jiangdg.yuvosd.runnable.EncoderVideoRunnable;
+import com.jiangdg.demo.runnable.EncoderAudioRunnable;
+import com.jiangdg.demo.runnable.EncoderVideoRunnable;
 
 import android.media.MediaCodec;
 import android.media.MediaFormat;

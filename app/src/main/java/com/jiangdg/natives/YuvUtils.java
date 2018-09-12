@@ -1,14 +1,19 @@
 package com.jiangdg.natives;
 
-/** 时间水印native方法
- *
- * Created by jiangdongguo on 2017/9/28.
+/**
+ * Created by jiangdongguo on 2018/8/18.
  */
 
 public class YuvUtils {
+    public static native int nativeNV21ToYUV420sp(byte[] data,int width, int height);
+    public static native int nativeNV21ToYUV420p(byte[] data,int width, int height);
+    public static native int nativeYV12ToNV21(byte[] data,int width, int height);
 
-    public static native void nativeNV21ToYV12(byte[] src,int width, int height,byte[] dst);
-    public static native void nativeYV12ToNV21(byte[] src,int width, int height,byte[] dst);
+    // 后置旋转：90、180、270
+    public native static void nativeRotateNV21(byte[] src,byte[] dest,int width, int height,int rotateDegree);
+
+    // 前置旋转：270，180
+    public  static native void nativeRotateNV21Flip(byte[] src,byte[] dest,int width, int height,int rotateDegree);
 
     static{
         System.loadLibrary("YuvOsd");

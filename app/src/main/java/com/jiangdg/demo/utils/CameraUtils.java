@@ -22,9 +22,9 @@ import android.view.SurfaceHolder;
  */
 public class CameraUtils {
 	private static final String TAG = "CameraManager";
-	public static int PREVIEW_WIDTH = 1920;
-	public static int PREVIEW_HEIGHT = 1080;
-	public static boolean isUsingYv12 = true;
+	public static int PREVIEW_WIDTH = 640;
+	public static int PREVIEW_HEIGHT = 480;
+	public static boolean isUsingYv12 = false;
 
 	private Camera mCamera;
 	private static Context mContext;

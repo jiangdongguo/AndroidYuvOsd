@@ -15,6 +15,15 @@ public class YuvUtils {
     // 前置旋转：270，180
     public  static native void nativeRotateNV21Flip(byte[] src,byte[] dest,int width, int height,int rotateDegree);
 
+    /** 添加水印
+     *  src 图像数据，YUV420采样格式均可(只用到了Y分量)
+     *  width 图像宽度
+     *  height 图像高度
+     *  osdStr 水印内容
+     *  isHorizontalTake 图像方向，水平或竖直
+     * */
+    public static native void addYuvOsd(byte[] src,int width,int height,boolean isHorizontalTake,String osdStr,int startX,int startY);
+
     static{
         System.loadLibrary("YuvOsd");
     }
